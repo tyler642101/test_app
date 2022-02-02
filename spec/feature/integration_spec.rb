@@ -10,3 +10,11 @@ RSpec.describe 'Creating a book', type: :feature do
     expect(page).to have_content('harry potter')
   end
 end
+
+RSpec.describe 'Creating a book', type: :feature do
+  scenario 'blank input' do
+    visit new_book_path
+    click_on 'Create Book'
+    expect(page).to have_content("Title can't be blank")
+  end
+end
