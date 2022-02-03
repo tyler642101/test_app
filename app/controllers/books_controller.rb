@@ -21,6 +21,7 @@ class BooksController < ApplicationController
 
   # GET /books/1/delete
   def delete
+    @book = Book.find(params[:id])
   end
 
   # POST /books or /books.json
@@ -42,7 +43,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to book_url(@book), notice: "Book was successfully updated." }
+        format.html { redirect_to books_url, notice: "Book was successfully updated." }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, status: :unprocessable_entity }
