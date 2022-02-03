@@ -14,6 +14,27 @@ RSpec.describe 'Creating a book', type: :feature do
 end
 
 RSpec.describe 'Creating a book', type: :feature do
+  scenario 'valid author' do
+    visit new_book_path
+    fill_in 'Author', with: 'harry potter'
+  end
+end
+
+RSpec.describe 'Creating a book', type: :feature do
+  scenario 'valid price' do
+    visit new_book_path
+    fill_in 'Price', with: '123'
+  end
+end
+
+RSpec.describe 'Creating a book', type: :feature do
+  scenario 'valid date' do
+    visit new_book_path
+    fill_in 'Price', with: '123'
+  end
+end
+
+RSpec.describe 'Creating a book', type: :feature do
   scenario 'blank input' do
     visit new_book_path
     click_on 'Create Book'
